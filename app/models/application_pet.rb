@@ -5,4 +5,8 @@ class ApplicationPet < ApplicationRecord
   def approve
     self.status = "Approved"
   end
+
+  def pending?
+    status == "Pending"
+  end
 end
