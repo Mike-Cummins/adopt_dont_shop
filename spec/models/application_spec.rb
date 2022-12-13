@@ -31,5 +31,13 @@ RSpec.describe Application do
       
       expect(application_2.any_pets?).to be false
     end
+
+    it 'check if the status is in progress' do 
+      shelter1 = Shelter.create!(name: "Brightside", city: "Salem", rank: 2, foster_program: true)
+      pet_1 = shelter1.pets.create!(name: "Cozmo", age: 8, breed: 'Aussie', adoptable: true)
+      application = pet_1.applications.create!(name: 'Billy Bob', street_address: "54984 Bulldog Rd", city: "Salem", state: "OR", zipcode: "97301", description: "Billy Bob wants a buddy", status: "Pending")
+
+      expect(application.in_progress?).to eq(false)
+    end
   end
 end
