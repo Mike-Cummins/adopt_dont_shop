@@ -105,7 +105,6 @@ RSpec.describe 'the pets index' do
     expect(page).to have_content(application.city)
     expect(page).to have_content(application.state)
     expect(page).to have_content(application.zipcode)
-    expect(page).to have_content(application.description)
     expect(page).to have_content("In Progress")
   end 
 end
