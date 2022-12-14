@@ -37,7 +37,6 @@ class Shelter < ApplicationRecord
   end 
 
   def self.pending_applications
-    pending = Shelter.select('name').joins(pets: :applications).where(applications:{status: 'Pending'})
-    pending.pluck(:name)
+    Shelter.select('name').joins(pets: :applications).where(applications:{status: 'Pending'}).pluck(:name)
   end
 end
